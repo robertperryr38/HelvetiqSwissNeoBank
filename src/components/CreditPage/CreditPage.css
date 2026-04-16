@@ -6,6 +6,7 @@
   align-items: center;
   background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
   padding: 20px var(--page-horizontal-padding);
+  text-align: center;
 }
 
 .credit-page__container {
@@ -16,6 +17,7 @@
   text-align: center;
   width: 100%;
   max-width: var(--page-max-width);
+  margin: auto;
 }
 
 .credit-page__icon {

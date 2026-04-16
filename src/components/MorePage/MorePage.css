@@ -16,6 +16,7 @@
   flex-direction: column;
   gap: 24px;
   margin: 0 auto;
+  align-self: center;
 }
 
 .more-page__header {
