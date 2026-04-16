@@ -76,6 +76,17 @@ body {
   display: none;
 }
 
+.screen > .credit-page,
+.screen > .deposit-page,
+.screen > .cashback-page,
+.screen > .more-page,
+.screen > .settings-page,
+.screen > .pending-deposit-page {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
 /* ============================================
    MODERN TYPOGRAPHY
    ============================================ */

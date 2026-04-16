@@ -4,7 +4,7 @@
   padding: 20px var(--page-horizontal-padding);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
   animation: fadeIn 0.6s ease-out;
 }
