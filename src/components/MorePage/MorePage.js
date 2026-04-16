@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import NotificationService from '../../services/NotificationService';
+import { motion } from 'framer-motion';
 import './MorePage.css';
 import { apiUrl } from '../../config';
 
@@ -8,6 +7,7 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
+  const [chatError, setChatError] = useState('');
   const [userData, setUserData] = useState(user);
   const messagesEndRef = useRef(null);
 
@@ -50,11 +50,8 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
   }, []);
 
   useEffect(() => {
-    NotificationService.requestPermission();
-  }, []);
-
-  useEffect(() => {
     if (isChatOpen) {
+      setChatError('');
       fetchMessages();
       const interval = setInterval(fetchMessages, 3000);
       return () => clearInterval(interval);
@@ -64,7 +61,14 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
   const fetchMessages = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const currentUser = JSON.parse(localStorage.getItem('user'));
+      const storedUser = localStorage.getItem('user');
+      const currentUser = storedUser ? JSON.parse(storedUser) : null;
+
+      if (!token || !currentUser) {
+        setMessages([]);
+        setChatError('Unable to load support chat.');
+        return;
+      }
 
       const response = await fetch(apiUrl('/support/messages'), {
         headers: {
@@ -75,7 +79,8 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
 
       if (response.ok) {
         const data = await response.json();
-        const newMessages = data.map((msg) => ({
+        const safeMessages = Array.isArray(data) ? data : [];
+        const newMessages = safeMessages.map((msg) => ({
           id: msg.id,
           text: msg.text,
           sender: msg.fromAdmin ? 'support' : 'user',
@@ -85,22 +90,16 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
           }),
         }));
 
-        setMessages((prevMessages) => {
-          const hasNewAdminMessages = newMessages.some(
-            (msg) =>
-              msg.sender === 'support' &&
-              !prevMessages.some((oldMsg) => oldMsg.id === msg.id)
-          );
-
-          if (hasNewAdminMessages) {
-            NotificationService.notifyNewMessage('Helvetiq Bank Support');
-          }
-
-          return newMessages;
-        });
+        setMessages(newMessages);
+        setChatError('');
+      } else {
+        setMessages([]);
+        setChatError('Support chat is temporarily unavailable.');
       }
     } catch (error) {
       console.error('Error fetching messages:', error);
+      setMessages([]);
+      setChatError('Failed to load support chat.');
     }
   };
 
@@ -117,7 +116,13 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
       setLoading(true);
       try {
         const token = localStorage.getItem('authToken');
-        const currentUser = JSON.parse(localStorage.getItem('user'));
+        const storedUser = localStorage.getItem('user');
+        const currentUser = storedUser ? JSON.parse(storedUser) : null;
+
+        if (!token || !currentUser) {
+          setChatError('Unable to send message right now.');
+          return;
+        }
 
         const response = await fetch(apiUrl('/support/message'), {
           method: 'POST',
@@ -146,13 +151,14 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
             },
           ]);
           setInputValue('');
+          setChatError('');
           setTimeout(fetchMessages, 1000);
         } else {
-          alert('Failed to send the message');
+          setChatError('Failed to send the message.');
         }
       } catch (error) {
         console.error('Error sending message:', error);
-        alert('Failed to send the message');
+        setChatError('Failed to send the message.');
       } finally {
         setLoading(false);
       }
@@ -187,17 +193,6 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
       y: 0,
       transition: { duration: 0.4, ease: 'easeOut' },
     },
-  };
-
-  const messageVariants = {
-    hidden: { opacity: 0, y: 10, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.3, ease: 'easeOut' },
-    },
-    exit: { opacity: 0, y: -10 },
   };
 
   const openChat = (event) => {
@@ -360,23 +355,30 @@ function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseC
           </div>
 
           <div className="chat-messages">
-            <AnimatePresence>
-              {messages.map((message) => (
-                <motion.div
+            {chatError && (
+              <div className="chat-empty-state">
+                <p className="chat-empty-state__text">{chatError}</p>
+              </div>
+            )}
+
+            {!chatError && messages.length === 0 && (
+              <div className="chat-empty-state">
+                <p className="chat-empty-state__text">No messages yet. Start the conversation.</p>
+              </div>
+            )}
+
+            {!chatError &&
+              messages.map((message) => (
+                <div
                   key={message.id}
                   className={`chat-message chat-message--${message.sender}`}
-                  variants={messageVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
                 >
                   <div className="chat-message__bubble">
                     <p className="chat-message__text">{message.text}</p>
                     <span className="chat-message__time">{message.timestamp}</span>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </AnimatePresence>
             <div ref={messagesEndRef} />
           </div>
 

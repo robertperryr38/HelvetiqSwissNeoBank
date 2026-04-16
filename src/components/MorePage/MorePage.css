@@ -373,6 +373,23 @@
   text-align: left;
 }
 
+.chat-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  padding: 20px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat-empty-state__text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  text-align: center;
+}
+
 /* ============================================
    INPUT
    ============================================ */
