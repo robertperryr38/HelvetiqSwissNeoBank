@@ -4,7 +4,7 @@
   padding: 20px var(--page-horizontal-padding);
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
   animation: fadeIn 0.6s ease-out;
 }
@@ -16,7 +16,6 @@
   flex-direction: column;
   gap: 24px;
   margin: 0 auto;
-  align-self: center;
 }
 
 .cashback-page__header {

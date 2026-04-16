@@ -201,6 +201,18 @@ function MorePage({ onLogout, user, onSettings }) {
     exit: { opacity: 0, y: -10 },
   };
 
+  const openChat = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsChatOpen(true);
+  };
+
+  const closeChat = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsChatOpen(false);
+  };
+
   return (
     <motion.div
       className="more-page"
@@ -264,11 +276,12 @@ function MorePage({ onLogout, user, onSettings }) {
             <h2 className="more-section__title">Support</h2>
 
             <motion.button
+              type="button"
               className="support-btn"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => setIsChatOpen(true)}
+              onClick={openChat}
             >
               <span className="support-btn__icon">💬</span>
               <span className="support-btn__text">Contact Support</span>
@@ -285,6 +298,7 @@ function MorePage({ onLogout, user, onSettings }) {
             <h2 className="more-section__title">More</h2>
 
             <motion.button
+              type="button"
               className="settings-btn"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
@@ -297,6 +311,7 @@ function MorePage({ onLogout, user, onSettings }) {
             </motion.button>
 
             <motion.button
+              type="button"
               className="settings-btn"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
@@ -308,6 +323,7 @@ function MorePage({ onLogout, user, onSettings }) {
             </motion.button>
 
             <motion.button
+              type="button"
               className="settings-btn settings-btn--logout"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
@@ -329,10 +345,11 @@ function MorePage({ onLogout, user, onSettings }) {
         >
           <div className="chat-header">
             <motion.button
+              type="button"
               className="chat-header__back"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setIsChatOpen(false)}
+              onClick={closeChat}
             >
               ←
             </motion.button>
@@ -379,6 +396,7 @@ function MorePage({ onLogout, user, onSettings }) {
                 }}
               />
               <motion.button
+                type="button"
                 className="chat-input__send"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

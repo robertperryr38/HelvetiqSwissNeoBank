@@ -280,7 +280,7 @@ function App() {
     >
       <div className="screen">
         {currentPage === 'home' && (
-          <div className="home-layout">
+          <>
             <InteractiveCard />
             <ActionButtons
               onPopovnit={() => setIsModalOpen(true)}
@@ -289,7 +289,7 @@ function App() {
               onPendingDeposit={() => setCurrentPage('pending-deposit')}
             />
             <TransactionsList />
-          </div>
+          </>
         )}
         {currentPage === 'credit' && <CreditPage />}
         {currentPage === 'deposit' && <DepositPage />}

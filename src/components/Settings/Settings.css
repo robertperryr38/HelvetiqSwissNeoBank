@@ -10,6 +10,7 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
+  width: 100%;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   overflow-y: auto;
 }
@@ -22,6 +23,9 @@
   padding: 16px var(--page-horizontal-padding);
   background: rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
 }
 
 .settings-back-btn {
