@@ -98,9 +98,9 @@ function InteractiveCard() {
           top: isExpanded ? '50%' : 'auto',
           transform: isExpanded ? 'translate(-50%, -50%)' : 'none',
           zIndex: isExpanded ? 1000 : 10,
-          margin: isExpanded ? 0 : '20px 16px',
-          width: isExpanded ? '90vw' : '100%',
-          maxWidth: isExpanded ? '500px' : 'none',
+          margin: isExpanded ? 0 : '0 auto',
+          width: isExpanded ? 'min(90vw, 560px)' : '100%',
+          maxWidth: isExpanded ? '560px' : '100%',
         }}
         transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
       >
@@ -110,7 +110,7 @@ function InteractiveCard() {
           animate={{
             opacity: isExpanded ? 0 : 1,
             width: isExpanded ? 0 : 'auto',
-            marginRight: isExpanded ? 0 : '16px',
+            marginRight: isExpanded ? 0 : '24px',
           }}
           transition={{ duration: 0.4 }}
         >
@@ -137,14 +137,14 @@ function InteractiveCard() {
           className="card-wrapper"
           onClick={() => !isExpanded && setIsExpanded(true)}
           animate={{
-            position: isExpanded ? 'relative' : 'absolute',
-            right: isExpanded ? 'auto' : '-60px',
-            top: isExpanded ? 'auto' : '50%',
-            transform: isExpanded ? 'none' : 'translateY(-50%)',
-            width: isExpanded ? '100%' : '280px',
+            position: 'relative',
+            right: 'auto',
+            top: 'auto',
+            transform: 'none',
+            width: isExpanded ? '100%' : 'min(360px, 42%)',
             height: isExpanded ? '480px' : '180px',
-            margin: isExpanded ? '0' : '0',
-            marginTop: isExpanded ? '0' : '-90px',
+            margin: 0,
+            marginTop: 0,
           }}
           transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
         >

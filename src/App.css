@@ -13,7 +13,8 @@
   --app-min-height: 100dvh;
   --app-content-min-height: calc(var(--app-min-height) - var(--bottom-nav-height));
   --page-horizontal-padding: clamp(16px, 3vw, 32px);
-  --page-max-width: 960px;
+  --page-max-width: 760px;
+  --page-wide-max-width: 920px;
 }
 
 html, body, #root {
@@ -74,6 +75,13 @@ body {
 
 .screen::-webkit-scrollbar {
   display: none;
+}
+
+.home-layout {
+  width: 100%;
+  max-width: var(--page-wide-max-width);
+  margin: 0 auto;
+  padding: 20px var(--page-horizontal-padding) 32px;
 }
 
 /* ============================================
@@ -262,6 +270,8 @@ input[type="number"]:focus {
 @media (max-width: 768px) {
   :root {
     --bottom-nav-height: 88px;
+    --page-max-width: 100%;
+    --page-wide-max-width: 100%;
   }
 
   h1 {
@@ -270,6 +280,10 @@ input[type="number"]:focus {
 
   h2 {
     font-size: 20px;
+  }
+
+  .home-layout {
+    padding: 16px 16px 24px;
   }
 }
 
