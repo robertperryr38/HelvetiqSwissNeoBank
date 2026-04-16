@@ -1,7 +1,7 @@
 .cashback-page {
   width: 100%;
-  min-height: calc(100vh - 80px);
-  padding: 20px;
+  min-height: var(--app-content-min-height);
+  padding: 20px var(--page-horizontal-padding);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -11,7 +11,7 @@
 
 .cashback-page__container {
   width: 100%;
-  max-width: 500px;
+  max-width: var(--page-max-width);
   display: flex;
   flex-direction: column;
   gap: 24px;
