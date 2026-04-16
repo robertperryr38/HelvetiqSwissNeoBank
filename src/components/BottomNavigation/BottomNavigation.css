@@ -1,0 +1,134 @@
+.bottom-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 20px;
+  background: rgba(15, 15, 15, 0.7);
+  backdrop-filter: blur(20px);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 20;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(102, 126, 234, 0.1);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  flex: 1;
+}
+
+.nav-item:hover {
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.nav-item.active {
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.nav-item:focus {
+  outline: none;
+}
+
+/* Иконка с оберткой для анимации */
+.nav-item__icon-wrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(139, 92, 246, 0);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-item:hover .nav-item__icon-wrapper {
+  background: rgba(139, 92, 246, 0.18);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.2);
+}
+
+.nav-item.active .nav-item__icon-wrapper {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35) 0%, rgba(59, 130, 246, 0.25) 100%);
+  box-shadow: 0 0 24px rgba(102, 126, 234, 0.3);
+}
+
+.nav-item__icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 6px rgba(102, 150, 255, 0.3));
+}
+
+.nav-item.active .nav-item__icon {
+  filter: drop-shadow(0 0 10px rgba(102, 150, 255, 0.5));
+}
+
+/* Текст вкладки */
+.nav-item__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  max-width: 70px;
+  line-height: 1.1;
+}
+
+.nav-item.active .nav-item__label {
+  color: rgba(139, 92, 246, 1);
+}
+
+/* Активный индикатор внизу */
+.nav-item__indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #8b5cf6 50%, transparent 100%);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+
+@media (max-width: 480px) {
+  .nav-item {
+    padding: 8px 8px;
+  }
+
+  .nav-item__icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-item__icon {
+    font-size: 22px;
+  }
+
+  .nav-item__label {
+    font-size: 10px;
+    max-width: 60px;
+  }
+}

@@ -1,0 +1,393 @@
+.cashback-page {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.cashback-page__container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cashback-page__header {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.cashback-page__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+
+.cashback-page__subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ============================================
+   БАЛАНС КЕШБЕКУ
+   ============================================ */
+
+.cashback-balance {
+  position: relative;
+  background: linear-gradient(135deg, rgba(249, 158, 11, 0.15) 0%, rgba(234, 179, 8, 0.1) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(249, 158, 11, 0.2);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(249, 158, 11, 0.1);
+}
+
+.cashback-balance::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% -50%, rgba(249, 158, 11, 0.1), transparent);
+  pointer-events: none;
+}
+
+.cashback-balance__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.cashback-balance__amount {
+  font-size: 48px;
+  font-weight: 900;
+  background: linear-gradient(135deg, rgba(249, 158, 11, 1) 0%, rgba(217, 119, 6, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.cashback-balance__glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(249, 158, 11, 0.2),
+    transparent
+  );
+  animation: pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ============================================
+   КАТЕГОРІЇ
+   ============================================ */
+
+.cashback-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cashback-categories__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.cashback-categories__subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ============================================
+   СІТКА КАРТОЧЕК
+   ============================================ */
+
+.cashback-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.cashback-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  min-height: 160px;
+}
+
+.cashback-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color, #8b5cf6), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.cashback-card:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color, rgba(139, 92, 246, 0.5));
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+}
+
+.cashback-card:hover:not(.disabled)::before {
+  opacity: 0.1;
+}
+
+.cashback-card.active {
+  background: linear-gradient(135deg, rgba(var(--rgb-color, 139, 92, 246), 0.25) 0%, rgba(var(--rgb-color, 139, 92, 246), 0.1) 100%);
+  border-color: var(--color, rgba(139, 92, 246, 0.6));
+  box-shadow: 0 0 20px var(--color, rgba(139, 92, 246, 0.2));
+}
+
+.cashback-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cashback-card__glow {
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, var(--color, rgba(139, 92, 246, 0.2)), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.cashback-card:hover:not(.disabled) .cashback-card__glow {
+  opacity: 1;
+}
+
+.cashback-card.active .cashback-card__glow {
+  opacity: 0.8;
+}
+
+.cashback-card__icon {
+  font-size: 40px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.cashback-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  z-index: 2;
+}
+
+.cashback-card__toggle {
+  width: 50px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  margin-top: 8px;
+  z-index: 2;
+  transition: all 0.35s ease;
+}
+
+.cashback-card.active .cashback-card__toggle {
+  background: var(--color, rgba(139, 92, 246, 0.6));
+  border-color: var(--color, rgba(139, 92, 246, 0.8));
+  box-shadow: 0 0 12px var(--color, rgba(139, 92, 246, 0.3));
+}
+
+.cashback-card__toggle-circle {
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cashback-card__checkmark {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: var(--color, rgba(139, 92, 246, 1));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 3;
+  box-shadow: 0 4px 12px var(--color, rgba(139, 92, 246, 0.4));
+}
+
+/* ============================================
+   INFO BOX
+   ============================================ */
+
+.cashback-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(168, 85, 247, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.cashback-info__icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cashback-info__text {
+  font-size: 12px;
+  color: rgba(168, 85, 247, 0.9);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ============================================
+   КНОПКА
+   ============================================ */
+
+.cashback-page__apply {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.8) 0%, rgba(59, 130, 246, 0.6) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
+  letter-spacing: 0.3px;
+}
+
+.cashback-page__apply:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 1) 0%, rgba(59, 130, 246, 0.8) 100%);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+  transform: translateY(-2px);
+}
+
+.cashback-page__apply:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.cashback-page__apply:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+
+@media (max-width: 480px) {
+  .cashback-page {
+    padding: 16px;
+  }
+
+  .cashback-page__container {
+    gap: 20px;
+  }
+
+  .cashback-page__title {
+    font-size: 24px;
+  }
+
+  .cashback-balance {
+    padding: 24px 16px;
+  }
+
+  .cashback-balance__amount {
+    font-size: 40px;
+  }
+
+  .cashback-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .cashback-card {
+    padding: 20px 12px;
+    min-height: 140px;
+    gap: 10px;
+  }
+
+  .cashback-card__icon {
+    font-size: 36px;
+  }
+
+  .cashback-card__name {
+    font-size: 13px;
+  }
+
+  .cashback-page__apply {
+    padding: 14px;
+    font-size: 14px;
+  }
+}

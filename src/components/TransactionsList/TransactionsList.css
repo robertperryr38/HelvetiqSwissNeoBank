@@ -1,0 +1,211 @@
+.transactions-list {
+  padding: 32px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.transactions-list__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.transactions-list__content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+  flex: 1;
+}
+
+/* ============================================
+   ТРАНЗАКЦИЯ - КАРТОЧКА
+   ============================================ */
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15),
+              inset 0 0 15px rgba(255, 255, 255, 0.03);
+}
+
+.transaction-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(102, 126, 234, 0.15),
+              inset 0 0 15px rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+}
+
+/* Левая часть - иконка, название, описание */
+.transaction-item__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.transaction-item__category {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 12px;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.transaction-item:hover .transaction-item__category {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: scale(1.05);
+}
+
+.transaction-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.transaction-item__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-item__description {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Правая часть - сумма и время */
+.transaction-item__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-left: 12px;
+}
+
+.transaction-item__amount {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: -0.3px;
+  transition: color 0.3s ease;
+}
+
+.transaction-item__amount.expense {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.transaction-item__amount.income {
+  color: #10b981;
+}
+
+.transaction-item:hover .transaction-item__amount.income {
+  color: #34d399;
+}
+
+.transaction-item:hover .transaction-item__amount.expense {
+  color: #ffffff;
+}
+
+.transaction-item__time {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: right;
+}
+
+/* ============================================
+   КНОПКА
+   ============================================ */
+
+.transactions-list__button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  color: rgba(139, 92, 246, 1);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+}
+
+.transactions-list__button:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(59, 130, 246, 0.15) 100%);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+.transactions-list__button:active {
+  transform: scale(0.98);
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+
+@media (max-width: 480px) {
+  .transactions-list {
+    padding: 20px 12px;
+  }
+
+  .transactions-list__title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .transaction-item {
+    padding: 14px;
+  }
+
+  .transaction-item__category {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .transaction-item__name {
+    font-size: 14px;
+  }
+
+  .transaction-item__amount {
+    font-size: 14px;
+  }
+
+  .transactions-list__button {
+    padding: 12px;
+    font-size: 13px;
+  }
+}

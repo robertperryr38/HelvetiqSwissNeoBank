@@ -1,0 +1,250 @@
+.balance-card {
+  margin: 24px 18px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  min-height: 280px;
+  display: flex;
+  align-items: stretch;
+  animation: slideInUp 0.6s ease-out;
+  cursor: pointer;
+  
+  /* Гласс-морфизм эффект */
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25),
+              0 0 50px rgba(102, 126, 234, 0.25),
+              inset 0 0 20px rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* При открытой карте */
+.balance-card--open {
+  margin: 0;
+  min-height: 380px;
+  max-width: 90vw;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Overlay затемнения при открытии */
+.balance-card__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  cursor: pointer;
+}
+
+/* Визуальная часть (фон справа) */
+.balance-card__visual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 55%;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* При открытой карте - визуальная часть меньше мешает */
+.balance-card--open .balance-card__visual {
+  opacity: 0.3;
+  width: 50%;
+}
+
+/* Фоновый градиент с glow */
+.balance-card__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #1e3a8a 100%);
+  z-index: 0;
+}
+
+/* Glow эффекты */
+.balance-card__glow {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(60px);
+}
+
+.balance-card__glow--1 {
+  width: 300px;
+  height: 300px;
+  top: -50px;
+  right: -120px;
+  background: rgba(139, 92, 246, 0.6);
+  animation: float 6s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
+}
+
+.balance-card__glow--2 {
+  width: 250px;
+  height: 250px;
+  bottom: -60px;
+  right: -100px;
+  background: rgba(59, 130, 246, 0.5);
+  animation: float 8s ease-in-out infinite reverse, glow-pulse 5s ease-in-out infinite 0.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Контент поверх фона */
+.balance-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Текстовое содержимое (слева) */
+.balance-card__content-area {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 24px;
+  max-width: 45%;
+  width: 100%;
+  transition: all 0.4s ease;
+}
+
+/* При открытой карте - контент занимает всё место */
+.balance-card--open .balance-card__content-area {
+  max-width: none;
+  padding: 40px 36px;
+}
+
+.balance-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.balance-card__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.balance-card__menu {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.balance-card__menu:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Основной баланс */
+.balance-card__content {
+  margin-bottom: 16px;
+}
+
+.balance-card__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.balance-card__value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.balance-card__currency {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Строки баланса и кредита */
+.balance-card__balance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px 0;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.balance-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.balance-card__info-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.balance-card__info-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Подвал с номером карты */
+.balance-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 12px;
+  margin-top: auto;
+}
+
+.balance-card__card-number {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+.balance-card__holder {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+

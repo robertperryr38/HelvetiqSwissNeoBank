@@ -1,0 +1,650 @@
+{
+  "counters": {
+    "userId": 18,
+    "kycId": 11,
+    "messageId": 28,
+    "depositId": 10,
+    "transferId": 4,
+    "transactionId": 13
+  },
+  "users": [
+    {
+      "id": 1,
+      "login": "testuser",
+      "password": "123456",
+      "status": "approved",
+      "balance": 125738
+    },
+    {
+      "id": 2,
+      "login": "test2",
+      "password": "test2",
+      "status": "approved",
+      "balance": 0
+    },
+    {
+      "id": 3,
+      "login": "testadmin",
+      "password": "ByhFt{GYcPX?#zB|okk~",
+      "status": "active",
+      "balance": 50000
+    },
+    {
+      "id": 4,
+      "login": "testuser5",
+      "password": "pass123",
+      "status": "active",
+      "balance": 10000
+    },
+    {
+      "id": 5,
+      "login": "10000000",
+      "password": "Aa12345687!",
+      "status": "approved",
+      "balance": 1
+    },
+    {
+      "id": 6,
+      "login": "newuser",
+      "password": "pass1234",
+      "status": "approved",
+      "balance": 0
+    },
+    {
+      "id": 7,
+      "login": "demouser",
+      "password": "demo1234",
+      "status": "approved",
+      "balance": 1000
+    },
+    {
+      "id": 8,
+      "login": "test",
+      "password": "123456",
+      "fullName": "Test User",
+      "status": "approved",
+      "balance": 1000
+    },
+    {
+      "id": 9,
+      "login": "+10000000001",
+      "password": "Фф12345687!",
+      "fullName": "SYCHOV DMYTRO",
+      "status": "approved",
+      "balance": 1000
+    },
+    {
+      "id": 10,
+      "login": "testnew",
+      "password": "123456",
+      "fullName": "Test New",
+      "status": "approved",
+      "balance": 0,
+      "cashback": 0
+    },
+    {
+      "id": 11,
+      "login": "+10000",
+      "password": "AB123456",
+      "fullName": "Ебанько",
+      "status": "approved",
+      "balance": 0,
+      "cashback": 0
+    },
+    {
+      "id": 12,
+      "login": "+100001",
+      "password": "AB123456",
+      "fullName": "Ебанько",
+      "status": "approved",
+      "balance": 0,
+      "cashback": 0
+    },
+    {
+      "id": 13,
+      "login": "+100002",
+      "password": "AB123456",
+      "fullName": "Ебанько12",
+      "status": "approved",
+      "balance": 900,
+      "cashback": 0
+    },
+    {
+      "id": 14,
+      "login": "+100003",
+      "password": "AB123456",
+      "fullName": "Ебанько122",
+      "status": "rejected",
+      "balance": 99122,
+      "cashback": 0
+    },
+    {
+      "id": 15,
+      "login": "+100004",
+      "password": "AB123456",
+      "fullName": "Ебанько1223",
+      "status": "approved",
+      "balance": 0,
+      "cashback": 0
+    },
+    {
+      "id": 16,
+      "login": "+100009",
+      "password": "AB123456",
+      "fullName": "Ебанько12231",
+      "status": "approved",
+      "balance": 111,
+      "cashback": 0
+    },
+    {
+      "id": 17,
+      "login": "+100012",
+      "password": "AB123456",
+      "fullName": "Ебанько122312",
+      "status": "approved",
+      "balance": 111,
+      "cashback": 0
+    }
+  ],
+  "kycRequests": [
+    {
+      "id": 1,
+      "userId": 8,
+      "passportFront": "123456789",
+      "passportBack": "123456789",
+      "status": "approved",
+      "createdAt": "2026-04-16T02:41:51.583Z"
+    },
+    {
+      "id": 2,
+      "userId": 9,
+      "passportFront": "10000000",
+      "passportBack": "10000000",
+      "status": "approved",
+      "createdAt": "2026-04-16T02:45:00.540Z"
+    },
+    {
+      "id": 3,
+      "userId": 10,
+      "passportFront": "123456789",
+      "passportBack": "123456789",
+      "status": "pending",
+      "createdAt": "2026-04-16T02:49:36.231Z"
+    },
+    {
+      "id": 4,
+      "userId": 11,
+      "passportFront": "AB123456",
+      "passportBack": "AB123456",
+      "status": "pending",
+      "createdAt": "2026-04-16T15:06:06.031Z"
+    },
+    {
+      "id": 5,
+      "userId": 12,
+      "passportFront": "AB123456",
+      "passportBack": "AB123456",
+      "status": "approved",
+      "createdAt": "2026-04-16T15:20:54.528Z"
+    },
+    {
+      "id": 6,
+      "userId": 13,
+      "passportFront": "AB123456",
+      "passportBack": "AB123456",
+      "status": "approved",
+      "createdAt": "2026-04-16T15:23:47.600Z"
+    },
+    {
+      "id": 7,
+      "userId": 14,
+      "passportFront": "AB123456",
+      "passportBack": "AB123456",
+      "status": "approved",
+      "createdAt": "2026-04-16T15:36:58.541Z"
+    },
+    {
+      "id": 8,
+      "userId": 15,
+      "passportFront": "AB123456",
+      "passportBack": "AB123456",
+      "status": "approved",
+      "createdAt": "2026-04-16T16:00:48.230Z"
+    },
+    {
+      "id": 9,
+      "userId": 16,
+      "passportFront": "AB123456",
+      "passportBack": "AB123456",
+      "status": "pending",
+      "createdAt": "2026-04-16T17:26:57.698Z"
+    },
+    {
+      "id": 10,
+      "userId": 17,
+      "passportFront": "AB123456",
+      "passportBack": "AB123456",
+      "status": "approved",
+      "createdAt": "2026-04-16T17:36:10.251Z"
+    }
+  ],
+  "deposits": [
+    {
+      "id": 1,
+      "userId": 5,
+      "amount": 1000,
+      "method": "card",
+      "requisites": "11111111111",
+      "status": "processed",
+      "createdAt": "2026-04-16T01:34:03.807Z"
+    },
+    {
+      "id": 2,
+      "userId": 5,
+      "amount": 100,
+      "method": "phone",
+      "requisites": "+792323213",
+      "status": "processed",
+      "createdAt": "2026-04-16T01:36:54.826Z"
+    },
+    {
+      "id": 3,
+      "userId": 5,
+      "amount": 12312,
+      "method": "card",
+      "requisites": "12121",
+      "status": "processed",
+      "createdAt": "2026-04-16T01:40:14.897Z"
+    },
+    {
+      "id": 4,
+      "userId": 5,
+      "amount": 12122,
+      "method": "card",
+      "requisites": "12",
+      "status": "processed",
+      "createdAt": "2026-04-16T01:43:03.219Z"
+    },
+    {
+      "id": 5,
+      "userId": 13,
+      "amount": 1000,
+      "method": "card",
+      "requisites": "121212",
+      "status": "processed",
+      "createdAt": "2026-04-16T15:24:48.428Z"
+    },
+    {
+      "id": 6,
+      "userId": 14,
+      "amount": 100000,
+      "method": "card",
+      "requisites": "11212",
+      "status": "processed",
+      "createdAt": "2026-04-16T15:57:18.092Z"
+    },
+    {
+      "id": 7,
+      "userId": 14,
+      "amount": 122,
+      "method": "card",
+      "requisites": "12",
+      "status": "processed",
+      "createdAt": "2026-04-16T17:21:46.502Z"
+    },
+    {
+      "id": 8,
+      "userId": 16,
+      "amount": 111,
+      "method": "card",
+      "requisites": "111",
+      "status": "processed",
+      "createdAt": "2026-04-16T17:27:40.837Z"
+    },
+    {
+      "id": 9,
+      "userId": 17,
+      "amount": 111,
+      "method": "card",
+      "requisites": "111",
+      "status": "processed",
+      "createdAt": "2026-04-16T17:36:58.870Z"
+    }
+  ],
+  "transfers": [
+    {
+      "id": 1,
+      "userId": 5,
+      "cardNumber": "1121121212121212",
+      "amount": 1212,
+      "status": "processed",
+      "createdAt": "2026-04-16T01:39:32.655Z"
+    },
+    {
+      "id": 2,
+      "userId": 13,
+      "cardNumber": "1313223232323323",
+      "amount": 100,
+      "status": "processed",
+      "createdAt": "2026-04-16T15:25:44.819Z"
+    },
+    {
+      "id": 3,
+      "userId": 14,
+      "cardNumber": "1212121212121221",
+      "amount": 1000,
+      "status": "processed",
+      "createdAt": "2026-04-16T15:55:48.122Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "userId": 5,
+      "type": "income",
+      "amount": 1000,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T01:34:20.390Z"
+    },
+    {
+      "id": 2,
+      "userId": 5,
+      "type": "income",
+      "amount": 100,
+      "description": "Пополнение через phone",
+      "category": "💰",
+      "createdAt": "2026-04-16T01:37:34.564Z"
+    },
+    {
+      "id": 3,
+      "userId": 5,
+      "type": "expense",
+      "amount": 1212,
+      "description": "Перевод на карту 1121121212121212",
+      "category": "💳",
+      "createdAt": "2026-04-16T01:39:41.424Z"
+    },
+    {
+      "id": 4,
+      "userId": 5,
+      "type": "income",
+      "amount": 12312,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T01:40:24.017Z"
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "type": "income",
+      "amount": 12122,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T01:44:17.290Z"
+    },
+    {
+      "id": 6,
+      "userId": 13,
+      "type": "income",
+      "amount": 1000,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T15:25:21.543Z"
+    },
+    {
+      "id": 7,
+      "userId": 13,
+      "type": "expense",
+      "amount": 100,
+      "description": "Перевод на карту 1313223232323323",
+      "category": "💳",
+      "createdAt": "2026-04-16T15:25:51.507Z"
+    },
+    {
+      "id": 8,
+      "userId": 14,
+      "type": "income",
+      "amount": 100000,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T15:57:56.166Z"
+    },
+    {
+      "id": 9,
+      "userId": 14,
+      "type": "expense",
+      "amount": 1000,
+      "description": "Перевод на карту 1212121212121221",
+      "category": "💳",
+      "createdAt": "2026-04-16T16:02:00.072Z"
+    },
+    {
+      "id": 10,
+      "userId": 14,
+      "type": "income",
+      "amount": 122,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T17:22:18.992Z"
+    },
+    {
+      "id": 11,
+      "userId": 16,
+      "type": "income",
+      "amount": 111,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T17:28:13.075Z"
+    },
+    {
+      "id": 12,
+      "userId": 17,
+      "type": "income",
+      "amount": 111,
+      "description": "Пополнение через card",
+      "category": "💰",
+      "createdAt": "2026-04-16T17:37:23.151Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userId": 5,
+      "text": "3уацуацуа",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T01:16:28.036Z"
+    },
+    {
+      "id": 2,
+      "userId": 0,
+      "text": "Иди нахуй",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T01:16:39.996Z"
+    },
+    {
+      "id": 3,
+      "userId": 5,
+      "text": "уцацуау",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T01:19:18.847Z"
+    },
+    {
+      "id": 4,
+      "userId": 0,
+      "text": "Да нахуй",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T01:19:27.267Z"
+    },
+    {
+      "id": 5,
+      "userId": 0,
+      "text": "пидор",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T01:27:04.688Z"
+    },
+    {
+      "id": 6,
+      "userId": 0,
+      "text": "пошёл в пизду",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T01:27:51.051Z"
+    },
+    {
+      "id": 7,
+      "userId": 5,
+      "text": "алоо",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T01:27:56.991Z"
+    },
+    {
+      "id": 8,
+      "userId": 0,
+      "toUserId": 5,
+      "text": "Иди нахуй",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T01:45:22.476Z"
+    },
+    {
+      "id": 9,
+      "userId": 11,
+      "text": "Алло",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T15:07:04.873Z"
+    },
+    {
+      "id": 10,
+      "userId": 13,
+      "text": "упркупкрп",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T15:26:46.102Z"
+    },
+    {
+      "id": 11,
+      "userId": 0,
+      "toUserId": 13,
+      "text": "иДИ НАХУЙ",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T15:26:58.477Z"
+    },
+    {
+      "id": 12,
+      "userId": 14,
+      "text": "цуацуацуаца",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T15:56:24.645Z"
+    },
+    {
+      "id": 13,
+      "userId": 0,
+      "toUserId": 14,
+      "text": "Пошёл в пизду",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T15:58:33.991Z"
+    },
+    {
+      "id": 14,
+      "userId": 15,
+      "text": "ываоушо",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T16:01:13.885Z"
+    },
+    {
+      "id": 15,
+      "userId": 14,
+      "text": "Nu blya",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T17:08:02.617Z"
+    },
+    {
+      "id": 16,
+      "userId": 0,
+      "toUserId": 14,
+      "text": "ცფვ",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T17:08:18.533Z"
+    },
+    {
+      "id": 17,
+      "userId": 0,
+      "toUserId": 14,
+      "text": "нАХУЙ",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T17:08:35.766Z"
+    },
+    {
+      "id": 18,
+      "userId": 14,
+      "text": "ОК",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T17:23:15.790Z"
+    },
+    {
+      "id": 19,
+      "userId": 0,
+      "toUserId": 14,
+      "text": "Хуёк",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T17:23:29.574Z"
+    },
+    {
+      "id": 20,
+      "userId": 14,
+      "text": "Сук(",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T17:23:41.069Z"
+    },
+    {
+      "id": 21,
+      "userId": 16,
+      "text": "уцауца",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T17:31:59.639Z"
+    },
+    {
+      "id": 22,
+      "userId": 17,
+      "text": "цйвйцв",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T17:37:50.484Z"
+    },
+    {
+      "id": 23,
+      "userId": 0,
+      "toUserId": 17,
+      "text": "Привет",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T17:38:01.874Z"
+    },
+    {
+      "id": 24,
+      "userId": 17,
+      "text": "Кто ты? ",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T17:38:08.115Z"
+    },
+    {
+      "id": 25,
+      "userId": 0,
+      "toUserId": 17,
+      "text": "Админ ",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T17:38:14.384Z"
+    },
+    {
+      "id": 26,
+      "userId": 17,
+      "text": "Ничосе",
+      "fromAdmin": false,
+      "createdAt": "2026-04-16T17:38:19.106Z"
+    },
+    {
+      "id": 27,
+      "userId": 0,
+      "toUserId": 17,
+      "text": "Ага, прикол ",
+      "fromAdmin": true,
+      "createdAt": "2026-04-16T17:38:28.418Z"
+    }
+  ]
+}
