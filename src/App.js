@@ -26,6 +26,7 @@ function App() {
   const [isTransferModalOpen, setIsTransferModalOpen] = useState(false);
   const [isOtherPaymentsOpen, setIsOtherPaymentsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
+  const [isSupportChatOpen, setIsSupportChatOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authPage, setAuthPage] = useState('login');
   const [user, setUser] = useState(null);
@@ -268,7 +269,15 @@ function App() {
     setUser(null);
     setAuthPage('login');
     setCurrentPage('home');
+    setIsSupportChatOpen(false);
     setKycStatus('loading');
+  };
+
+  const handlePageChange = (nextPage) => {
+    setCurrentPage(nextPage);
+    if (nextPage !== 'more') {
+      setIsSupportChatOpen(false);
+    }
   };
 
   return (
@@ -298,7 +307,13 @@ function App() {
           <MorePage
             onLogout={handleLogout}
             user={user}
-            onSettings={() => setCurrentPage('settings')}
+            onSettings={() => {
+              setIsSupportChatOpen(false);
+              setCurrentPage('settings');
+            }}
+            isChatOpen={isSupportChatOpen}
+            onOpenChat={() => setIsSupportChatOpen(true)}
+            onCloseChat={() => setIsSupportChatOpen(false)}
           />
         )}
         {currentPage === 'settings' && (
@@ -308,7 +323,7 @@ function App() {
           <PendingDepositPage onBack={() => setCurrentPage('home')} />
         )}
       </div>
-      <BottomNavigation currentPage={currentPage} onPageChange={setCurrentPage} />
+      <BottomNavigation currentPage={currentPage} onPageChange={handlePageChange} />
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

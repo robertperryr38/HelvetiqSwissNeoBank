@@ -4,8 +4,7 @@ import NotificationService from '../../services/NotificationService';
 import './MorePage.css';
 import { apiUrl } from '../../config';
 
-function MorePage({ onLogout, user, onSettings }) {
-  const [isChatOpen, setIsChatOpen] = useState(false);
+function MorePage({ onLogout, user, onSettings, isChatOpen, onOpenChat, onCloseChat }) {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
@@ -204,13 +203,13 @@ function MorePage({ onLogout, user, onSettings }) {
   const openChat = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    setIsChatOpen(true);
+    onOpenChat();
   };
 
   const closeChat = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    setIsChatOpen(false);
+    onCloseChat();
   };
 
   return (
