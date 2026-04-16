@@ -176,68 +176,6 @@ select {
 }
 
 /* ============================================
-   APP CONTAINER & PHONE FRAME
-   ============================================ */
-
-.app-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 0;
-  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-}
-
-.phone-frame {
-  width: 100%;
-  max-width: 390px;
-  height: 100vh;
-  background: #0f0f0f;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-/* ============================================
-   SCREEN CONTENT
-   ============================================ */
-
-.screen {
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: visible;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(180deg, #050508 0%, #0a0a12 100%);
-  padding-bottom: 80px;
-  position: relative;
-  
-  /* Custom scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
-}
-
-.screen::-webkit-scrollbar {
-  width: 4px;
-}
-
-.screen::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.screen::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-}
-
-.screen::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* ============================================
    TYPOGRAPHY
    ============================================ */
 

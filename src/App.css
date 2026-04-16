@@ -35,7 +35,10 @@ body {
 .app-container {
   display: flex;
   flex-direction: column;
+  justify-content: initial;
+  align-items: stretch;
   width: 100%;
+  max-width: 100%;
   min-height: var(--app-min-height);
   height: var(--app-min-height);
   background: rgba(0, 0, 0, 0.35);
@@ -47,8 +50,11 @@ body {
    ============================================ */
 
 .screen {
+  display: block;
   flex: 1;
   min-height: 0;
+  width: 100%;
+  max-width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   background: radial-gradient(circle at center, #1a1f3a 0%, #0b0f1f 100%);
@@ -57,7 +63,7 @@ body {
   position: relative;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
-  padding-bottom: max(24px, env(safe-area-inset-bottom));
+  padding-bottom: calc(var(--bottom-nav-height) + max(24px, env(safe-area-inset-bottom)));
 }
 
 .screen::before {
