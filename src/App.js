@@ -171,60 +171,58 @@ function App() {
         initial="hidden"
         animate="visible"
       >
-        <div className="phone-frame">
-          <div
-            className="screen"
+        <div
+          className="screen"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            gap: '20px',
+          }}
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            style={{ fontSize: '48px' }}
+          >
+            ⏳
+          </motion.div>
+          <h2 style={{ textAlign: 'center', color: 'white', margin: 0 }}>
+            Passport Verification
+          </h2>
+          <p
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              gap: '20px',
+              color: 'rgba(255, 255, 255, 0.7)',
+              textAlign: 'center',
+              margin: 0,
             }}
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              style={{ fontSize: '48px' }}
-            >
-              ⏳
-            </motion.div>
-            <h2 style={{ textAlign: 'center', color: 'white', margin: 0 }}>
-              Passport Verification
-            </h2>
-            <p
-              style={{
-                color: 'rgba(255, 255, 255, 0.7)',
-                textAlign: 'center',
-                margin: 0,
-              }}
-            >
-              Your passport is currently under review.
-              <br />
-              Please wait for administrator approval.
-            </p>
-            <button
-              onClick={() => {
-                localStorage.removeItem('user');
-                localStorage.removeItem('authToken');
-                setIsAuthenticated(false);
-                setUser(null);
-                setAuthPage('login');
-                setKycStatus('loading');
-              }}
-              style={{
-                marginTop: '20px',
-                padding: '12px 24px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                color: 'white',
-                borderRadius: '12px',
-                cursor: 'pointer',
-              }}
-            >
-              Logout
-            </button>
-          </div>
+            Your passport is currently under review.
+            <br />
+            Please wait for administrator approval.
+          </p>
+          <button
+            onClick={() => {
+              localStorage.removeItem('user');
+              localStorage.removeItem('authToken');
+              setIsAuthenticated(false);
+              setUser(null);
+              setAuthPage('login');
+              setKycStatus('loading');
+            }}
+            style={{
+              marginTop: '20px',
+              padding: '12px 24px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              borderRadius: '12px',
+              cursor: 'pointer',
+            }}
+          >
+            Logout
+          </button>
         </div>
       </motion.div>
     );
@@ -238,28 +236,26 @@ function App() {
         initial="hidden"
         animate="visible"
       >
-        <div className="phone-frame">
-          <div
-            className="screen"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              gap: '20px',
-            }}
+        <div
+          className="screen"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            gap: '20px',
+          }}
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            style={{ fontSize: '48px' }}
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              style={{ fontSize: '48px' }}
-            >
-              ⏳
-            </motion.div>
-            <h2 style={{ textAlign: 'center', color: 'white', margin: 0 }}>
-              Loading...
-            </h2>
-          </div>
+            ⏳
+          </motion.div>
+          <h2 style={{ textAlign: 'center', color: 'white', margin: 0 }}>
+            Loading...
+          </h2>
         </div>
       </motion.div>
     );
@@ -282,52 +278,50 @@ function App() {
       initial="hidden"
       animate="visible"
     >
-      <div className="phone-frame">
-        <div className="screen">
-          {currentPage === 'home' && (
-            <>
-              <InteractiveCard />
-              <ActionButtons
-                onPopovnit={() => setIsModalOpen(true)}
-                onTransfer={() => setIsTransferModalOpen(true)}
-                onOtherPayments={() => setIsOtherPaymentsOpen(true)}
-                onPendingDeposit={() => setCurrentPage('pending-deposit')}
-              />
-              <TransactionsList />
-            </>
-          )}
-          {currentPage === 'credit' && <CreditPage />}
-          {currentPage === 'deposit' && <DepositPage />}
-          {currentPage === 'cashback' && <CashbackPage />}
-          {currentPage === 'more' && (
-            <MorePage
-              onLogout={handleLogout}
-              user={user}
-              onSettings={() => setCurrentPage('settings')}
+      <div className="screen">
+        {currentPage === 'home' && (
+          <>
+            <InteractiveCard />
+            <ActionButtons
+              onPopovnit={() => setIsModalOpen(true)}
+              onTransfer={() => setIsTransferModalOpen(true)}
+              onOtherPayments={() => setIsOtherPaymentsOpen(true)}
+              onPendingDeposit={() => setCurrentPage('pending-deposit')}
             />
-          )}
-          {currentPage === 'settings' && (
-            <Settings onBack={() => setCurrentPage('more')} />
-          )}
-          {currentPage === 'pending-deposit' && (
-            <PendingDepositPage onBack={() => setCurrentPage('home')} />
-          )}
-        </div>
-        <BottomNavigation currentPage={currentPage} onPageChange={setCurrentPage} />
-        <Modal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          onSuccess={() => setCurrentPage('pending-deposit')}
-        />
-        <TransferModal
-          isOpen={isTransferModalOpen}
-          onClose={() => setIsTransferModalOpen(false)}
-        />
-        <OtherPayments
-          isOpen={isOtherPaymentsOpen}
-          onClose={() => setIsOtherPaymentsOpen(false)}
-        />
+            <TransactionsList />
+          </>
+        )}
+        {currentPage === 'credit' && <CreditPage />}
+        {currentPage === 'deposit' && <DepositPage />}
+        {currentPage === 'cashback' && <CashbackPage />}
+        {currentPage === 'more' && (
+          <MorePage
+            onLogout={handleLogout}
+            user={user}
+            onSettings={() => setCurrentPage('settings')}
+          />
+        )}
+        {currentPage === 'settings' && (
+          <Settings onBack={() => setCurrentPage('more')} />
+        )}
+        {currentPage === 'pending-deposit' && (
+          <PendingDepositPage onBack={() => setCurrentPage('home')} />
+        )}
       </div>
+      <BottomNavigation currentPage={currentPage} onPageChange={setCurrentPage} />
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSuccess={() => setCurrentPage('pending-deposit')}
+      />
+      <TransferModal
+        isOpen={isTransferModalOpen}
+        onClose={() => setIsTransferModalOpen(false)}
+      />
+      <OtherPayments
+        isOpen={isOtherPaymentsOpen}
+        onClose={() => setIsOtherPaymentsOpen(false)}
+      />
     </motion.div>
   );
 }
