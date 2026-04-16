@@ -26,33 +26,11 @@ body {
 
 .app-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
   min-height: 100vh;
-  padding: 20px;
   background: rgba(0, 0, 0, 0.35);
 }
-
-/* ============================================
-   PHONE FRAME
-   ============================================ */
-
-.phone-frame {
-  width: 100%;
-  max-width: 1100px;
-  min-height: 760px;
-  background: rgba(12, 13, 20, 0.96);
-  border-radius: 32px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45),
-              0 0 60px rgba(102, 126, 234, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
 
 /* ============================================
    SCREEN CONTENT
@@ -268,20 +246,6 @@ input[type="number"]:focus {
    ============================================ */
 
 @media (max-width: 768px) {
-  .phone-frame {
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 9 / 19;
-    border-radius: 30px;
-    border: 8px solid #000;
-  }
-
-  .phone-frame::before {
-    width: 120px;
-    height: 24px;
-    border-radius: 0 0 30px 30px;
-  }
-
   h1 {
     font-size: 28px;
   }
